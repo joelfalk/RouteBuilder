@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 @Component
 public class Translator {
 
-    public String translate(String body) {
+    public String translate(Customer customer) {
 
-        return String.format("Hello %s", body);
+        return String.format("Hello %s", customer.getName());
     }
 }
