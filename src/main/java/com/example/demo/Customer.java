@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import liquibase.pro.packaged.S;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -7,15 +8,39 @@ import java.util.Objects;
 
 
 public class Customer {
-    private final int id;
-    private final String name;
-    private final String bank;
-    private final String permission;
+    private int id;
+    private String name;
+    private String bank;
+    private String permission;
 
     public Customer(String name, int id, String bank, String permission) {
         this.name = name;
         this.id = id;
         this.bank = bank;
+        this.permission = permission;
+    }
+
+    public Customer(){
+        id = 0;
+        name = "";
+        bank = "";
+        permission = "";
+    }
+
+    public void setId(int id) {
+        this.id = id;
+
+    }
+
+    public  void setName(String name) {
+        this.name = name;
+    }
+
+    public  void setBank(String bank) {
+        this.bank = bank;
+    }
+
+    public void setPermission(String permission) {
         this.permission = permission;
     }
 
@@ -47,9 +72,10 @@ public class Customer {
         return name;
     }
 
-
     /* Basic, Standard or Premium user.*/
     public String getPermission() {
         return permission;
     }
+    
+    
 }

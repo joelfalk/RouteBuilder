@@ -8,6 +8,6 @@ public class PremiumGreeting {
 
     public String premiumGreeting(Customer customer) {
 
-        return String.format("Hello Premium User %s, this is a Premium Greeting for a Premium people. Premium!", customer.getName());
+        return String.format("Hello Premium User %s, this is a Premium Greeting for a Premium person. Premium!", customer.getName());
     }
 }
