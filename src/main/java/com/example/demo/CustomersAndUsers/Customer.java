@@ -1,9 +1,8 @@
-package com.example.demo;
+package com.example.demo.CustomersAndUsers;
 
-import liquibase.pro.packaged.S;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
+import org.apache.camel.Pattern;
 
+import javax.validation.constraints.Max;
 import java.util.Objects;
 
 
@@ -13,23 +12,20 @@ public class Customer {
     private String bank;
     private String permission;
 
+
+
     public Customer(String name, int id, String bank, String permission) {
         this.name = name;
         this.id = id;
         this.bank = bank;
         this.permission = permission;
+
     }
 
-    public Customer(){
-        id = 0;
-        name = "";
-        bank = "";
-        permission = "";
-    }
+
 
     public void setId(int id) {
         this.id = id;
-
     }
 
     public  void setName(String name) {
@@ -51,6 +47,8 @@ public class Customer {
     public int getId() {
         return id;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

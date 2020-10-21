@@ -1,6 +1,6 @@
 package com.example.demo.Greetings;
 
-import com.example.demo.Customer;
+import com.example.demo.CustomersAndUsers.Customer;
 import org.springframework.stereotype.Component;
 
 @Component

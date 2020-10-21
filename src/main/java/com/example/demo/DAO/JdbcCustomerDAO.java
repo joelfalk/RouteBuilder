@@ -1,10 +1,12 @@
 package com.example.demo.DAO;
 
-import com.example.demo.Customer;
+import com.example.demo.CustomersAndUsers.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -17,6 +19,11 @@ public class JdbcCustomerDAO implements CustomerDAO {
         return jdbcTemplate.update(
                 "insert into PERMISSIONS (name, id, bank, permission) values (?,?,?,?)",
                 customer.getName(), customer.getId(), customer.getBank(), customer.getPermission());
+    }
+
+    @Override
+    public int count() {
+       return jdbcTemplate.query("select * from PERMISSIONS", rowMap()).size();
     }
 
     @Override
@@ -46,4 +53,15 @@ public class JdbcCustomerDAO implements CustomerDAO {
                 "delete PERMISSIONS where id = ?",
                 id);
     }
+
+
+    private RowMapper<Customer> rowMap() {
+        return (rs, rowNum) -> new Customer(
+                rs.getString("name"),
+                rs.getInt("id"),
+                rs.getString("bank"),
+                rs.getString("permission")
+        );
+    }
 }
+

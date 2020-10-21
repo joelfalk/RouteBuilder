@@ -1,6 +1,6 @@
 package com.example.demo.DAO;
 
-import com.example.demo.Customer;
+import com.example.demo.CustomersAndUsers.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -18,7 +18,7 @@ public class NamedParameterJdbcCustomerDAO extends JdbcCustomerDAO{
     @Override
     public int update(Customer customer) {
         return namedParameterJdbcTemplate.update(
-                "update PERMISSIONS set name = :name, bank = :bank, permission = :permission where id = :id",
+                "update permissions set name = :name, bank = :bank, permission = :permission where id = :id",
                 new BeanPropertySqlParameterSource(customer));
     }
 
